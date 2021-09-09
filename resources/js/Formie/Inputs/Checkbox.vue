@@ -32,6 +32,12 @@ export default {
   computed: {
     active() {
       const v = this.value;
+
+      if (v == null && this.field.hasOwnProperty("default")) {
+        this.$emit("update", this.field.default);
+        return this.field.default;
+      }
+
       return v && v != 0 ? true : false;
     },
   },

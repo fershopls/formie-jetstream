@@ -31,6 +31,7 @@ export default () => [
     {
         name: 'active',
         label: 'Activada',
+        default: true,
         type: InputCheckbox,
     },
     {
