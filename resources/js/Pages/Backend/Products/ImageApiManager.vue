@@ -1,13 +1,13 @@
 <template>
   <div
     v-if="context.model && context.model.id"
-    class="grid grid-cols-3 sm:grid-cols-4"
+    class="grid grid-cols-3 gap-4 sm:grid-cols-4"
   >
     <div
       v-for="image in context.model.images"
       :key="image.id"
     >
-      <div class="rounded-xl overflow-hidden">
+      <div class="rounded-xl border border-gray-200 overflow-hidden">
         <a
           :href="image.url"
           target="_blank"
