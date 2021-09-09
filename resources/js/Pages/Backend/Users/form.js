@@ -17,24 +17,19 @@ export default [
     label: "Contraseña",
     type: "password"
   },
-  {
-    name: "birth_date",
-    label: "Fecha de Nacimiento",
-    type: "date"
-  },
-  {
-    name: "role",
-    label: "Rol",
-    type: InputRadio,
-    attrs: {
-      class: "flex-col"
-    },
-    options: {
-      admin: "Administrador",
-      editor: "Creador de Contenido",
-      mod: "Moderador"
-    }
-  },
+//   {
+//     name: "role",
+//     label: "Rol",
+//     type: InputRadio,
+//     attrs: {
+//       class: "flex-col"
+//     },
+//     options: {
+//       admin: "Administrador",
+//       editor: "Creador de Contenido",
+//       mod: "Moderador"
+//     }
+//   },
   {
     type: FieldButton,
     buttons: [
