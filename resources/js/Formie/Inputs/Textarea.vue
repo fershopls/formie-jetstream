@@ -47,7 +47,7 @@ textarea {
 <script>
 export default {
   props: {
-    modelValue: String,
+    value: String,
     label: String,
     placeholder: String,
     rows: {
@@ -55,15 +55,15 @@ export default {
       default: 1,
     },
   },
-  emits: ["update:modelValue", "blur"],
+  emits: ["update", "blur"],
   data() {
     return {
-      currentValue: this.modelValue,
+      currentValue: this.value,
     };
   },
   watch: {
     currentValue() {
-      this.$emit("update:modelValue", this.currentValue);
+      this.$emit("update", this.currentValue);
     },
   },
   mounted() {
