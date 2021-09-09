@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-around">
     <div
-      v-for="(button, key) in field.buttons"
+      v-for="(button, key) in buttons"
       :key="key"
     >
       <button
@@ -20,6 +20,19 @@
 <script>
 export default {
   props: ["field", "context"],
+
+  computed: {
+    buttons() {
+      return this.field.buttons
+        .map((button) => {
+          if (typeof button == "function") {
+            return button(this.context);
+          }
+          return button;
+        })
+        .filter((button) => button != null);
+    },
+  },
 
   methods: {
     getButtonStyle(button) {
