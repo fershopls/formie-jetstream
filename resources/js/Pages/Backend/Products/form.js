@@ -24,7 +24,7 @@ const onSubmit = ({ values }) => {
 }
 
 
-export default [
+export default (props) => [
   {
     name: "name",
     label: "Nombre del Producto",
@@ -46,19 +46,15 @@ export default [
     type: FieldUpload,
     multiple: true,
   },
-//   {
-//     name: "role",
-//     label: "Rol",
-//     type: InputRadio,
-//     attrs: {
-//       class: "flex-col"
-//     },
-//     options: {
-//       admin: "Administrador",
-//       editor: "Creador de Contenido",
-//       mod: "Moderador"
-//     }
-//   },
+  {
+    name: "category",
+    label: "Categoría",
+    type: InputRadio,
+    attrs: {
+      class: "flex-col"
+    },
+    options: props.categories,
+  },
   {
     type: FieldButton,
     buttons: [

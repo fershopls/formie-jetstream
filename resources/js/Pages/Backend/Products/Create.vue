@@ -33,7 +33,7 @@ import Formie from "@/Formie/Formie";
 import form from "./form.js";
 
 export default {
-  props: ["model", "title"],
+  props: ["model", "title", "categories"],
 
   components: {
     AppLayout,
@@ -42,9 +42,9 @@ export default {
     Formie,
   },
 
-  setup() {
+  setup(props) {
     return {
-      form,
+      form: form(props),
     };
   },
 

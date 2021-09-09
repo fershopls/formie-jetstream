@@ -9,8 +9,11 @@ class ProductController extends Controller
 {
     public function create()
     {
+        $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
+
         return inertia('Backend/Products/Create', [
             'title' => 'Crear un producto',
+            'categories' => $categories,
         ]);
     }
 
