@@ -64,6 +64,36 @@ class ProductController extends Controller
     }
 
 
+    public function update(Product $product, Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'price' => 'required|integer',
+            'description' => 'required',
+            'images' => 'required|array',
+            'images.*' => 'file|mimes:png,jpg,jpeg',
+            'category_id' => 'required|integer',
+        ]);
+
+        $storedImages = collect($request->images)
+            ->map(function ($file) {
+                $path = $file->store('public/products');
+                return [
+                    'path' => $path,
+                    'url' => Storage::url($path),
+                ];
+            });
+
+        $product->update($validated);
+
+        $product->images()->createMany(
+            $storedImages->toArray()
+        );
+
+        return redirect()->route('products.edit', $product->id);
+    }
+
+
     public function imagesDestroy(Product $product, Image $image)
     {
         if ($product->images($image)->detach()) {
