@@ -36,6 +36,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
+            'active' => 'required|boolean'
         ]);
 
         $category = Category::create($validated);
@@ -48,6 +49,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
+            'active' => 'required|boolean'
         ]);
 
         $category->update($validated);
