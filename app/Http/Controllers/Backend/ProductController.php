@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,9 +20,19 @@ class ProductController extends Controller
     }
 
 
+    private function getCategories()
+    {
+        return Category::query()
+            ->orderBy('id', 'desc')
+            ->get()
+            ->pluck('name', 'id')
+            ->toArray();
+    }
+
+
     public function create()
     {
-        $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
+        $categories = $this->getCategories();
 
         return inertia('Backend/Form', [
             'title' => 'Crear un producto',
@@ -35,7 +46,7 @@ class ProductController extends Controller
     {
         $product->load('images');
 
-        $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
+        $categories = $this->getCategories();
 
         return inertia('Backend/Form', [
             'title' => 'Editar un producto',
