@@ -40,12 +40,12 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'description' => 'required',
-            'images' => 'required|array',
-            'images.*' => 'file|mimes:png,jpg,jpeg',
+            'images_upload' => 'required|array',
+            'images_upload.*' => 'file|mimes:png,jpg,jpeg',
             'category_id' => 'required|integer',
         ]);
 
-        $storedImages = collect($request->images)
+        $storedImages = collect($request->images_upload)
             ->map(function ($file) {
                 $path = $file->store('public/products');
                 return [
@@ -70,12 +70,12 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'description' => 'required',
-            'images' => 'required|array',
-            'images.*' => 'file|mimes:png,jpg,jpeg',
+            'images_upload' => 'required|array',
+            'images_upload.*' => 'file|mimes:png,jpg,jpeg',
             'category_id' => 'required|integer',
         ]);
 
-        $storedImages = collect($request->images)
+        $storedImages = collect($request->images_upload)
             ->map(function ($file) {
                 $path = $file->store('public/products');
                 return [
