@@ -20,6 +20,7 @@ const onSubmit = ({ model, values }) => {
         const url = route('products.update', model.id);
         const data = {_method: 'PUT', ...values};
         Inertia.post(url, data, {
+            preserveScroll: true,
             onSuccess: () => values.images_upload = null,
         });
     } else {
