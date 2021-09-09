@@ -37,5 +37,5 @@ Route::middleware(['auth:sanctum', 'verified'])
             ->only('create', 'store', 'edit', 'update', 'destroy');
 
         Route::resource('products', ProductController::class)
-            ->only('create', 'store', 'edit', 'update', 'delete');
+            ->only('create', 'store', 'edit', 'update', 'destroy');
     });
