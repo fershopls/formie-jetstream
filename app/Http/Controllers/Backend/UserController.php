@@ -25,9 +25,11 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return inertia('Backend/Users/Create', [
+
+        return inertia('Backend/Form', [
+            'title' => 'Editar un usuario',
             'model' => $user,
-            'title' => 'Editar un Usuario'
+            'form' => 'users.js'
         ]);
     }
 

@@ -22,7 +22,7 @@ const onSubmit = ({ values }) => {
 }
 
 
-export default [
+export default () => [
   {
     name: "name",
     label: "Nombre Completo",
