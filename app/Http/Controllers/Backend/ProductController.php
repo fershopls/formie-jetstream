@@ -23,9 +23,11 @@ class ProductController extends Controller
     {
         $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
 
-        return inertia('Backend/Products/Create', [
-            'title' => 'Crear un producto',
+        return inertia('Backend/Form', [
+            'title' => 'Editar un producto',
             'categories' => $categories,
+            'model' => null,
+            'form' => 'products.js'
         ]);
     }
 
