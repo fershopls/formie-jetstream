@@ -43,11 +43,11 @@ export default (props) => [
     type: InputTextarea
   },
   {
-    name: "images",
+    name: "images_upload",
     label: "Imágenes",
     type: FieldUpload,
     multiple: true,
-  },
+  },    
   {
       type: ImageApiManager,
   },
