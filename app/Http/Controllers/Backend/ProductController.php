@@ -19,6 +19,20 @@ class ProductController extends Controller
         ]);
     }
 
+    public function edit(Product $product)
+    {
+        $product->load('images');
+        return $product;
+
+        $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
+
+        return inertia('Backend/Products/Create', [
+            'title' => 'Crear un producto',
+            'categories' => $categories,
+            'model' => $product,
+        ]);
+    }
+
 
     public function store(Request $request)
     {
@@ -33,7 +47,7 @@ class ProductController extends Controller
 
         $storedUrls = collect($request->images)
             ->map(function ($file) {
-                $path = $file->store('products');
+                $path = $file->store('public/products');
                 return Storage::url($path);
             });
 
