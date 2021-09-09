@@ -1,5 +1,6 @@
 import { Inertia } from '@inertiajs/inertia';
 import Buttons from '@/Formie/Inputs/Buttons';
+import InputCheckbox from '@/Formie/Inputs/Checkbox';
 
 
 function onDelete({ id }) {
@@ -26,6 +27,11 @@ export default () => [
         name: 'name',
         label: 'Nombre',
         type: 'text',
+    },
+    {
+        name: 'active',
+        label: 'Activada',
+        type: InputCheckbox,
     },
     {
         type: Buttons,
