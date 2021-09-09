@@ -7,7 +7,7 @@
     </template>
 
     <div>
-      <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+      <div class="max-w-xl mx-auto py-10 sm:px-6 lg:px-8">
 
         <div class="px-4 py-4 bg-white rounded shadow-sm">
           <formie
