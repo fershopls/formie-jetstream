@@ -23,5 +23,7 @@ class ProductController extends Controller
             'description' => 'required',
             'images' => 'required|array',
         ]);
+
+        dd($request->all());
     }
 }
