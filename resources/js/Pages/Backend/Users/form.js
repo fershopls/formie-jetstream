@@ -46,13 +46,13 @@ export default [
   {
     type: FieldButton,
     buttons: [
-      {
+      ({ values }) => (!values.id?null:{
         label: "Eliminar",
         class: "bg-red-700 text-white",
         clicked(context) {
           console.log("Delete id", context.values.id, context);
         }
-      },
+      }),
       {
         label: "Guardar",
         type: "submit",
