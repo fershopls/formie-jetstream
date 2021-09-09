@@ -1,7 +1,7 @@
 import { Inertia } from '@inertiajs/inertia';
 
 import InputRadio from "@/Formie/Inputs/Radio";
-import FieldButton from "@/Formie/Inputs/Button";
+import Buttons from "@/Formie/Inputs/Buttons";
 
 
 const onDelete = ({ id }) => {
@@ -57,7 +57,7 @@ export default () => [
 //     }
 //   },
   {
-    type: FieldButton,
+    type: Buttons,
     buttons: [
       // Button delete
       function ({ id }) {

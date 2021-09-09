@@ -1,5 +1,5 @@
 import { Inertia } from '@inertiajs/inertia';
-import Buttons from '@/Formie/Inputs/Button';
+import Buttons from '@/Formie/Inputs/Buttons';
 
 
 function onDelete({ id }) {

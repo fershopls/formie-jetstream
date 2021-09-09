@@ -3,7 +3,7 @@ import { Inertia } from '@inertiajs/inertia';
 import InputRadio from "@/Formie/Inputs/Radio";
 import InputSelect from "@/Formie/Inputs/Select";
 import InputTextarea from "@/Formie/Inputs/Textarea";
-import FieldButton from "@/Formie/Inputs/Button";
+import Buttons from "@/Formie/Inputs/Buttons";
 import FieldUpload from "@/Formie/Inputs/Upload";
 
 import ImageApiManager from "./ImageApiManager";
@@ -69,7 +69,7 @@ export default (props) => [
     options: props.categories,
   },
   {
-    type: FieldButton,
+    type: Buttons,
     buttons: [
       // Delete async button
       function ({ model }) {
