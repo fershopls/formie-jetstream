@@ -45,20 +45,19 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
         ]);
 
-        $storedUrls = collect($request->images)
+        $storedImages = collect($request->images)
             ->map(function ($file) {
                 $path = $file->store('public/products');
-                return Storage::url($path);
+                return [
+                    'path' => $path,
+                    'url' => Storage::url($path),
+                ];
             });
 
         $product = Product::create($validated);
 
-        $records = $storedUrls->map(function ($url) {
-            return ['url' => $url];
-        });
-
         $product->images()->createMany(
-            $records->toArray()
+            $storedImages->toArray()
         );
 
         return $product;
@@ -67,6 +66,10 @@ class ProductController extends Controller
 
     public function imagesDestroy(Product $product, Image $image)
     {
-        dd($product->toArray(), $image->toArray());
+        dd($image->url, Storage::delete($image->url));
+
+        if ($product->images($image)->detach()) {
+            Storage::delete($image->url);
+        }
     }
 }
