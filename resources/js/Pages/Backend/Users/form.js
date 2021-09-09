@@ -18,11 +18,16 @@ export default [
   {
     name: "email",
     label: "Correo Electrónico",
-    type: "email"
+    type: "text"
   },
   {
     name: "password",
     label: "Contraseña",
+    type: "password"
+  },
+  {
+    name: "password_confirmation",
+    label: "Repita su Contraseña",
     type: "password"
   },
 //   {
