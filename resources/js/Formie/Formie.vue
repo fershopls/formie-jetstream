@@ -28,7 +28,7 @@
 import Field from "./Field";
 
 export default {
-  props: ["form", "model", "debug"],
+  props: ["form", "model", "debug", "errors"],
 
   emits: ["submitted"],
 
@@ -68,6 +68,7 @@ export default {
       return {
         values: this.values,
         form: this.form,
+        errors: this.errors,
       };
     },
   },

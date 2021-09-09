@@ -14,6 +14,12 @@
       @input="$emit('update:modelValue', $event.target.value)"
       @update="(value) => $emit('update:modelValue', value)"
     />
+    <div v-if="field.name && context.errors && context.errors[field.name]">
+      <div class="text-red-600 mt-2 inline-block px-2 text-center border border-red-400 rounded">
+        <i class="fas fa-times"></i>
+        {{ context.errors[field.name] }}
+      </div>
+    </div>
   </div>
 </template>
 
