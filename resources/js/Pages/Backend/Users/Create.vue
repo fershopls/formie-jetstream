@@ -2,7 +2,7 @@
   <app-layout title="Form">
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Form
+        Usuarios
       </h2>
     </template>
 
@@ -12,6 +12,7 @@
         <div class="px-4 py-4 bg-white rounded shadow-sm">
           <formie
             :form="form"
+            :model="model"
             :errors="$page.props.errors"
           />
         </div>
@@ -31,7 +32,7 @@ import Formie from "@/Formie/Formie";
 import form from "./form.js";
 
 export default {
-  props: [],
+  props: ["model"],
 
   components: {
     AppLayout,
