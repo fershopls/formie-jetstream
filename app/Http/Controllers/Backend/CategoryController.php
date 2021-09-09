@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function create()
     {
         return inertia('Backend/Form', [
-            'form' => 'category.js',
+            'form' => 'categories.js',
             'model' => null,
             'title' => 'Crear categoria',
         ]);
