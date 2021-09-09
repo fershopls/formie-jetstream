@@ -46,7 +46,7 @@ export default {
     onDelete(id) {
       if (!confirm("Estas seguro?")) return;
 
-      const url = route(field.route, id);
+      const url = route(this.field.route, id);
 
       this.$inertia.delete(url, { preserveScroll: true });
     },
