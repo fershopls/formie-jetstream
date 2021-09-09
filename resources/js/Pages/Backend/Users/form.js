@@ -5,8 +5,13 @@ import FieldButton from "@/Formie/Inputs/Button";
 
 
 const onSubmit = ({ values }) => {
-    const url = route('users.store');
-    Inertia.post(url, values);
+    if (values.id) {
+        const url = route('users.update', values.id);
+        Inertia.put(url, values);
+    } else {
+        const url = route('users.store');
+        Inertia.post(url, values);
+    }
 }
 
 export default [
