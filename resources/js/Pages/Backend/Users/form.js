@@ -4,6 +4,13 @@ import InputRadio from "@/Formie/Inputs/Radio";
 import FieldButton from "@/Formie/Inputs/Button";
 
 
+const onDelete = ({values}) => {
+    if (values.id && confirm("Estas seguro?")) {
+        const url = route('users.destroy', values.id);
+        Inertia.delete(url);
+    }
+};
+
 const onSubmit = ({ values }) => {
     if (values.id) {
         const url = route('users.update', values.id);
@@ -13,6 +20,7 @@ const onSubmit = ({ values }) => {
         Inertia.post(url, values);
     }
 }
+
 
 export default [
   {
@@ -54,9 +62,7 @@ export default [
       ({ values }) => (!values.id?null:{
         label: "Eliminar",
         class: "bg-red-700 text-white",
-        clicked(context) {
-          console.log("Delete id", context.values.id, context);
-        }
+        clicked: onDelete,
       }),
       {
         label: "Guardar",
