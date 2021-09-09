@@ -17,8 +17,12 @@
 
     <pre
       v-if="debug"
-      class="mt-8 bg-gray-800 text-white p-4 rounded"
+      class="mt-8 overflow-x-auto bg-gray-800 text-white p-4 rounded"
     >{{ values }}</pre>
+    <pre
+      v-if="debug && $props.errors"
+      class="mt-3 overflow-x-auto bg-red-800 text-white p-4 rounded"
+    >{{ $props.errors }}</pre>
 
   </form>
 </template>

@@ -22,6 +22,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'description' => 'required',
             'images' => 'required|array',
+            'images.*' => 'file|mimes:png,jpg,jpeg'
         ]);
 
         dd($request->all());
