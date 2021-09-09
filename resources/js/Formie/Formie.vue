@@ -48,10 +48,11 @@ export default {
     });
 
     if (this.model) {
-      this.values = {
-        ...this.values,
-        ...this.model,
-      };
+      Object.keys(this.model).forEach((key) => {
+        if (this.values.hasOwnProperty(key)) {
+          this.values[key] = this.model[key];
+        }
+      });
     }
   },
 
