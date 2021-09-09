@@ -14,6 +14,7 @@
             :form="formObject"
             :model="model"
             :errors="$page.props.errors"
+            debug=1
           />
         </div>
 
