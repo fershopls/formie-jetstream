@@ -98,6 +98,7 @@ class ProductController extends Controller
     {
         if ($product->images($image)->detach()) {
             Storage::delete($image->path);
+            $image->delete();
         }
 
         return redirect()->route('products.edit', $product->id);
