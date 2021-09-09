@@ -21,4 +21,25 @@ class CategoryController extends Controller
             'title' => 'Crear categoria',
         ]);
     }
+
+    public function edit(Category $category)
+    {
+        return inertia('Backend/Form', [
+            'form' => 'categories.js',
+            'model' => $category,
+            'title' => 'Editar categoria',
+        ]);
+    }
+
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $category = Category::create($validated);
+
+        return redirect()->route('categories.edit', $category->id);
+    }
 }
