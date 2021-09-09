@@ -22,10 +22,11 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'price' => 'required|numeric',
+            'price' => 'required|integer',
             'description' => 'required',
             'images' => 'required|array',
-            'images.*' => 'file|mimes:png,jpg,jpeg'
+            'images.*' => 'file|mimes:png,jpg,jpeg',
+            'category_id' => 'required|integer',
         ]);
 
         dd($request->all());
