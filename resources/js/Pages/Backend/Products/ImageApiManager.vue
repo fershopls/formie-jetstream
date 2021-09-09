@@ -1,5 +1,8 @@
 <template>
-  <div class="grid grid-cols-3 sm:grid-cols-4">
+  <div
+    v-if="context.model && context.model.id"
+    class="grid grid-cols-3 sm:grid-cols-4"
+  >
     <div
       v-for="image in context.model.images"
       :key="image.id"
