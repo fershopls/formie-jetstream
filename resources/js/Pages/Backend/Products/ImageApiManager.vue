@@ -3,8 +3,13 @@
     v-if="context.model && context.model.id"
     class="bg-gray-100 rounded-lg px-2 py-4"
   >
-    <div class="text-xs uppercase text-center tracking-widest font-bold text-gray-400">Imágenes</div>
-    <div class="mt-3 flex gap-4 justify-around flex-wrap">
+    <div class="text-xs uppercase text-center tracking-widest font-bold text-gray-400">
+      {{ context.model.images.length ? 'Imágenes' : 'Ninguna imágen' }}
+    </div>
+    <div
+      v-if="context.model.images.length"
+      class="mt-3 flex gap-4 justify-around flex-wrap"
+    >
       <div
         v-for="image in context.model.images"
         :key="image.id"
