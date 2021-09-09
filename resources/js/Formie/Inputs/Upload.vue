@@ -2,7 +2,7 @@
   <div>
     <input
       type="file"
-      multiple
+      :multiple="field.multiple"
       @input="onInput"
     >
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  props: ["value"],
+  props: ["value", "field"],
   emits: ["update"],
 
   methods: {
