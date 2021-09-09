@@ -62,11 +62,18 @@ export default [
   {
     type: FieldButton,
     buttons: [
-      ({ values }) => (!values.id?null:{
-        label: "Eliminar",
-        class: "bg-red-700 text-white",
-        clicked: onDelete,
-      }),
+      // Delete async button
+      function ({ values }) {
+          if (values.id) {
+            return {
+              label: "Eliminar",
+              class: "bg-red-700 text-white",
+              clicked: onDelete,
+            };
+          }
+      },
+
+      // Save button
       {
         label: "Guardar",
         type: "submit",
