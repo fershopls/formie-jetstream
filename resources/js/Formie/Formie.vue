@@ -71,6 +71,7 @@ export default {
     context() {
       return {
         values: this.values,
+        model: this.model,
         form: this.form,
         errors: this.errors,
       };
