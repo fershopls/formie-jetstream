@@ -19,10 +19,10 @@
 
       </div>
 
-      <jet-section-border />
-
       <!-- Custom component -->
       <div v-if="component">
+        <jet-section-border />
+
         <component
           :is="component"
           v-bind="$props"
