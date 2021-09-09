@@ -15,7 +15,7 @@ const onDelete = ({model}) => {
     }
 };
 
-const onSubmit = ({ model }) => {
+const onSubmit = ({ model, values }) => {
     if (model.id) {
         const url = route('products.update', model.id);
         Inertia.post(url, {_method: 'PUT', ...values});
