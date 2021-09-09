@@ -42,4 +42,24 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.edit', $category->id);
     }
+
+
+    public function update(Request $request, Category $category)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $category->update($validated);
+
+        return redirect()->route('categories.edit', $category->id);
+    }
+
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+
+        return redirect()->route('categories.index');
+    }
 }

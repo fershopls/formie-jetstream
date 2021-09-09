@@ -3,15 +3,21 @@ import Buttons from '@/Formie/Inputs/Button';
 
 
 function onDelete({ id }) {
-    if (id) {
-        const url = route('categories.destroy');
+    if (id && confirm("Seguro?")) {
+        const url = route('categories.destroy', id);
         Inertia.delete(url);
     }
 }
 
-function onSave({ values }) {
-    const url = route('categories.store');
-    Inertia.post(url, values);
+function onSave({ id, values }) {
+    if (id) {
+        const url = route('categories.update', id);
+        const data = { _method: 'PUT', ...values };
+        Inertia.post(url, data);
+    } else {
+        const url = route('categories.store');
+        Inertia.post(url, values);
+    }
 }
 
 
