@@ -9,7 +9,9 @@
     <div>
       <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
-        <formie :form="form" />
+        <div class="px-4 py-4 bg-white rounded shadow-sm">
+          <formie :form="form" />
+        </div>
 
         <!-- <jet-section-border /> -->
 
