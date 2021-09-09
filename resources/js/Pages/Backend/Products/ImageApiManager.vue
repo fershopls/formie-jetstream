@@ -28,7 +28,7 @@
         </a>
         <div
           class="mt-2 tracking-wide text-center underline text-red-600 cursor-pointer"
-          @click="onDelete(context.model.id, image.id)"
+          @click="onDelete(image.id)"
         >
           Eliminar
         </div>
@@ -43,10 +43,11 @@ export default {
   props: ["field", "context"],
 
   methods: {
-    onDelete(product_id, image_id) {
+    onDelete(id) {
       if (!confirm("Estas seguro?")) return;
 
-      const url = route("products.images.destroy", image_id);
+      const url = route(field.route, id);
+
       this.$inertia.delete(url, { preserveScroll: true });
     },
   },

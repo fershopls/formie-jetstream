@@ -55,7 +55,8 @@ export default (props) => [
     multiple: true,
   },
   {
-      type: ImageApiManager,
+    type: ImageApiManager,
+    route: "products.images.destroy",
   },
   {
     name: "category_id",
