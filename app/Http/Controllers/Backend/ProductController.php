@@ -70,7 +70,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'description' => 'required',
-            'images_upload' => 'required|array',
+            'images_upload' => 'nullable|array',
             'images_upload.*' => 'file|mimes:png,jpg,jpeg',
             'category_id' => 'required|integer',
         ]);
