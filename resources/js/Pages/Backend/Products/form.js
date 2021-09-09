@@ -3,6 +3,7 @@ import { Inertia } from '@inertiajs/inertia';
 import InputRadio from "@/Formie/Inputs/Radio";
 import InputTextarea from "@/Formie/Inputs/Textarea";
 import FieldButton from "@/Formie/Inputs/Button";
+import FieldImageUpload from "@/Formie/Inputs/ImageUpload";
 
 
 const onDelete = ({values}) => {
@@ -42,7 +43,7 @@ export default [
   {
     name: "images",
     label: "Imágenes",
-    type: "password"
+    type: FieldImageUpload,
   },
 //   {
 //     name: "role",

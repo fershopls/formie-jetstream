@@ -10,7 +10,6 @@
       :field="safeField(field)"
       :value="modelValue"
       :context="context"
-      @input="$emit('update:modelValue', $event.target.value)"
       @update="(value) => $emit('update:modelValue', value)"
     />
     <div v-if="field.name && context.errors && context.errors[field.name]">
