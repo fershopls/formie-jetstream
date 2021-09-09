@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
 
             $table->string('url');
+            $table->string('path')->nullable();
         });
 
         Schema::create('imageables', function (Blueprint $table) {
