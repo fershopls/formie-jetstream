@@ -27,7 +27,8 @@ class ProductController extends Controller
             'title' => 'Editar un producto',
             'categories' => $categories,
             'model' => null,
-            'form' => 'products.js'
+            'form' => 'products.js',
+            'component' => 'Welcome',
         ]);
     }
 

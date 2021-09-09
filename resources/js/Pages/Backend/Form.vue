@@ -11,15 +11,24 @@
 
         <div class="px-4 py-4 bg-white rounded shadow-sm">
           <formie
-            :form="form"
+            :form="formObject"
             :model="model"
             :errors="$page.props.errors"
           />
         </div>
 
-        <!-- <jet-section-border /> -->
-
       </div>
+
+      <jet-section-border />
+
+      <!-- Custom component -->
+      <div v-if="component">
+        <component
+          :is="component"
+          v-bind="$props"
+        />
+      </div>
+
     </div>
   </app-layout>
 </template>
@@ -31,7 +40,7 @@ import JetSectionBorder from "@/Jetstream/SectionBorder.vue";
 import Formie from "@/Formie/Formie";
 
 export default {
-  props: ["model", "title", "categories", "form"],
+  props: ["model", "title", "categories", "form", "component"],
 
   components: {
     AppLayout,
@@ -44,7 +53,10 @@ export default {
     const form = require(`@/Forms/${props.form}`).default;
 
     return {
-      form: form(props),
+      formObject: form(props),
+      component: props.component
+        ? require(`@/Pages/${props.component}`).default
+        : null,
     };
   },
 
