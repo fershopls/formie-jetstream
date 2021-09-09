@@ -31,7 +31,8 @@ export default {
 
   computed: {
     active() {
-      return this.value ? true : false;
+      const v = this.value;
+      return v && v != 0 ? true : false;
     },
   },
 
