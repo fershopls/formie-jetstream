@@ -13,4 +13,15 @@ class ProductController extends Controller
             'title' => 'Crear un producto',
         ]);
     }
+
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required',
+            'images' => 'required|array',
+        ]);
+    }
 }

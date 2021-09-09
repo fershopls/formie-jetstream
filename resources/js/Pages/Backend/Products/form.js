@@ -7,17 +7,17 @@ import FieldButton from "@/Formie/Inputs/Button";
 
 const onDelete = ({values}) => {
     if (values.id && confirm("Estas seguro?")) {
-        const url = route('users.destroy', values.id);
+        const url = route('products.destroy', values.id);
         Inertia.delete(url);
     }
 };
 
 const onSubmit = ({ values }) => {
     if (values.id) {
-        const url = route('users.update', values.id);
+        const url = route('products.update', values.id);
         Inertia.put(url, values);
     } else {
-        const url = route('users.store');
+        const url = route('products.store');
         Inertia.post(url, values);
     }
 }
