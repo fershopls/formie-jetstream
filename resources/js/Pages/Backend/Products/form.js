@@ -47,7 +47,7 @@ export default (props) => [
     multiple: true,
   },
   {
-    name: "category",
+    name: "category_id",
     label: "Categoría",
     type: InputRadio,
     attrs: {
