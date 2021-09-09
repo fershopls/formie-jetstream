@@ -65,7 +65,7 @@ export default (props) => [
     buttons: [
       // Delete async button
       function ({ model }) {
-          if (model.id) {
+          if (model && model.id) {
             return {
               label: "Eliminar",
               class: "bg-red-700 text-white",
