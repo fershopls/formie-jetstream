@@ -17,7 +17,7 @@
       </div>
       <div
         class="mt-2 text-center underline text-red-600 cursor-pointer"
-        @click="onDelete(image.id)"
+        @click="onDelete(context.model.id, image.id)"
       >
         Eliminar
       </div>
@@ -31,8 +31,11 @@ export default {
   props: ["field", "context"],
 
   methods: {
-    onDelete(id) {
-      const url = route("products.images.destroy", id);
+    onDelete(product_id, image_id) {
+      const url = route("products.images.destroy", {
+        product: product_id,
+        image: image_id,
+      });
       this.$inertia.delete(url);
     },
   },
