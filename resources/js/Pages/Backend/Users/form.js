@@ -1,5 +1,13 @@
+import { Inertia } from '@inertiajs/inertia';
+
 import InputRadio from "@/Formie/Inputs/Radio";
 import FieldButton from "@/Formie/Inputs/Button";
+
+
+const onSubmit = ({ values }) => {
+    const url = route('users.store');
+    Inertia.post(url, values);
+}
 
 export default [
   {
@@ -42,7 +50,8 @@ export default [
       },
       {
         label: "Guardar",
-        type: "submit"
+        type: "submit",
+        clicked: onSubmit,
       }
     ]
   }

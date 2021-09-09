@@ -11,4 +11,16 @@ class UserController extends Controller
     {
         return inertia('Backend/Users/Create');
     }
+
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        dd($request->all());
+    }
 }

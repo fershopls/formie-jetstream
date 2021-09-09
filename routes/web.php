@@ -33,5 +33,5 @@ Route::middleware(['auth:sanctum', 'verified'])
         })->name('dashboard');
 
         Route::resource('users', UserController::class)
-            ->only('create');
+            ->only('create', 'store');
     });
