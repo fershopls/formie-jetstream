@@ -8,17 +8,17 @@ import FieldUpload from "@/Formie/Inputs/Upload";
 import ImageApiManager from "./ImageApiManager";
 
 
-const onDelete = ({values}) => {
-    if (values.id && confirm("Estas seguro?")) {
-        const url = route('products.destroy', values.id);
+const onDelete = ({model}) => {
+    if (model.id && confirm("Estas seguro?")) {
+        const url = route('products.destroy', model.id);
         Inertia.delete(url);
     }
 };
 
-const onSubmit = ({ values }) => {
-    if (values.id) {
-        const url = route('products.update', values.id);
-        Inertia.put(url, values);
+const onSubmit = ({ model }) => {
+    if (model.id) {
+        const url = route('products.update', model.id);
+        Inertia.post(url, {_method: 'PUT', ...values});
     } else {
         const url = route('products.store');
         Inertia.post(url, values);
@@ -47,7 +47,7 @@ export default (props) => [
     label: "Imágenes",
     type: FieldUpload,
     multiple: true,
-  },    
+  },
   {
       type: ImageApiManager,
   },
@@ -64,8 +64,8 @@ export default (props) => [
     type: FieldButton,
     buttons: [
       // Delete async button
-      function ({ values }) {
-          if (values.id) {
+      function ({ model }) {
+          if (model.id) {
             return {
               label: "Eliminar",
               class: "bg-red-700 text-white",
