@@ -1,6 +1,7 @@
 import { Inertia } from '@inertiajs/inertia';
 
 import InputRadio from "@/Formie/Inputs/Radio";
+import InputTextarea from "@/Formie/Inputs/Textarea";
 import FieldButton from "@/Formie/Inputs/Button";
 
 
@@ -36,7 +37,7 @@ export default [
   {
     name: "description",
     label: "Descripción",
-    type: "textarea"
+    type: InputTextarea
   },
   {
     name: "images",
