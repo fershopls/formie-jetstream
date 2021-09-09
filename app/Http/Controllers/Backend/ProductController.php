@@ -22,7 +22,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $product->load('images');
-        return $product;
 
         $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
 

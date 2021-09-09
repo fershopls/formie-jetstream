@@ -62,6 +62,9 @@ export default {
     };
   },
   watch: {
+    value(value) {
+      this.currentValue = value;
+    },
     currentValue() {
       this.$emit("update", this.currentValue);
     },
