@@ -75,6 +75,7 @@ export default {
         model: this.model,
         form: this.form,
         errors: this.errors,
+        id: this.model && this.model.id ? this.model.id : null,
       };
     },
   },
