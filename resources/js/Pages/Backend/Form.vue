@@ -29,10 +29,9 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import JetSectionBorder from "@/Jetstream/SectionBorder.vue";
 
 import Formie from "@/Formie/Formie";
-import form from "./form.js";
 
 export default {
-  props: ["model", "title", "categories"],
+  props: ["model", "title", "categories", "form"],
 
   components: {
     AppLayout,
@@ -42,6 +41,8 @@ export default {
   },
 
   setup(props) {
+    const form = require(`@/Forms/${props.form}`).default;
+
     return {
       form: form(props),
     };
