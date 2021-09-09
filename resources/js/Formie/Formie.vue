@@ -15,7 +15,11 @@
       />
     </div>
 
-    <pre class="mt-8 bg-gray-800 text-white p-4 rounded">{{ values }}</pre>
+    <pre
+      v-if="debug"
+      class="mt-8 bg-gray-800 text-white p-4 rounded"
+    >{{ values }}</pre>
+
   </form>
 </template>
 
@@ -24,7 +28,7 @@
 import Field from "./Field";
 
 export default {
-  props: ["form", "model"],
+  props: ["form", "model", "debug"],
 
   emits: ["submitted"],
 
