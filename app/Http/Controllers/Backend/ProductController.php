@@ -25,9 +25,9 @@ class ProductController extends Controller
 
         return inertia('Backend/Form', [
             'title' => 'Crear un producto',
-            'categories' => $categories,
-            'model' => null,
             'form' => 'products.js',
+            'model' => null,
+            'categories' => $categories,
         ]);
     }
 
@@ -39,10 +39,10 @@ class ProductController extends Controller
 
         return inertia('Backend/Form', [
             'title' => 'Editar un producto',
-            'categories' => $categories,
-            'model' => $product,
             'form' => 'products.js',
+            'model' => $product,
             'component' => 'Backend/Products/Images',
+            'categories' => $categories,
         ]);
     }
 
