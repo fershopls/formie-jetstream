@@ -16,16 +16,18 @@ const onDelete = ({model}) => {
 };
 
 const onSubmit = ({ model, values }) => {
+    const options = {
+        preserveScroll: true,
+        onSuccess: () => values.images_upload = null,
+    };
+
     if (model && model.id) {
         const url = route('products.update', model.id);
         const data = {_method: 'PUT', ...values};
-        Inertia.post(url, data, {
-            preserveScroll: true,
-            onSuccess: () => values.images_upload = null,
-        });
+        Inertia.post(url, data, options);
     } else {
         const url = route('products.store');
-        Inertia.post(url, values);
+        Inertia.post(url, values, options);
     }
 }
 
