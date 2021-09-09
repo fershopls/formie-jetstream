@@ -41,10 +41,7 @@ export default {
     onDelete(product_id, image_id) {
       if (!confirm("Estas seguro?")) return;
 
-      const url = route("products.images.destroy", {
-        product: product_id,
-        image: image_id,
-      });
+      const url = route("products.images.destroy", image_id);
       this.$inertia.delete(url, { preserveScroll: true });
     },
   },

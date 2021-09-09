@@ -114,13 +114,14 @@ class ProductController extends Controller
     }
 
 
-    public function imagesDestroy(Product $product, Image $image)
+    public function imagesDestroy(Image $image)
     {
-        if ($product->images()->detach($image->id)) {
+        $productId = $image->imageable->id;
+
+        if ($image->delete()) {
             Storage::delete($image->path);
-            $image->delete();
         }
 
-        return redirect()->route('products.edit', $product->id);
+        return redirect()->route('products.edit', $productId);
     }
 }

@@ -39,7 +39,7 @@ Route::middleware(['auth:sanctum', 'verified'])
         Route::resource('products', ProductController::class)
             ->only('index', 'create', 'store', 'edit', 'update', 'destroy');
         Route::prefix('products')->group(function () {
-            Route::delete('/{product}/images/{image}', [ProductController::class, 'imagesDestroy'])
+            Route::delete('/images/{image}', [ProductController::class, 'imagesDestroy'])
                 ->name('products.images.destroy');
         });
     });
