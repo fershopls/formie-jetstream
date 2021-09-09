@@ -12,9 +12,13 @@
       :context="context"
       @update="(value) => $emit('update:modelValue', value)"
     />
-    <div v-if="field.name && context.errors && context.errors[field.name]">
-      <input-error>
-        {{ context.errors[field.name] }}
+
+    <div v-if="field.name && context.errors">
+      <input-error
+        v-for="error, key in errors"
+        :key="key"
+      >
+        {{ error }}
       </input-error>
     </div>
   </div>
@@ -54,6 +58,16 @@ export default {
       }
 
       return InputDefault;
+    },
+
+    errors() {
+      if (this.field.preventNestedErrors) {
+        return this.context.errors[this.field.name];
+      } else {
+        return Object.keys(this.context.errors)
+          .filter((key) => key.startsWith(this.field.name))
+          .map((key) => this.context.errors[key]);
+      }
     },
   },
 };
