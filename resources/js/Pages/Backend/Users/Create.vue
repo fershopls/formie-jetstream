@@ -2,7 +2,7 @@
   <app-layout title="Form">
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Usuarios
+        {{ title }}
       </h2>
     </template>
 
@@ -32,7 +32,7 @@ import Formie from "@/Formie/Formie";
 import form from "./form.js";
 
 export default {
-  props: ["model"],
+  props: ["model", "title"],
 
   components: {
     AppLayout,
