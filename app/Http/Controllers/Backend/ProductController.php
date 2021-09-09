@@ -62,4 +62,10 @@ class ProductController extends Controller
 
         return $product;
     }
+
+
+    public function imagesDestroy($id)
+    {
+        return $id;
+    }
 }

@@ -5,6 +5,8 @@ import InputTextarea from "@/Formie/Inputs/Textarea";
 import FieldButton from "@/Formie/Inputs/Button";
 import FieldUpload from "@/Formie/Inputs/Upload";
 
+import ImageApiManager from "./ImageApiManager";
+
 
 const onDelete = ({values}) => {
     if (values.id && confirm("Estas seguro?")) {
@@ -45,6 +47,9 @@ export default (props) => [
     label: "Imágenes",
     type: FieldUpload,
     multiple: true,
+  },
+  {
+      type: ImageApiManager,
   },
   {
     name: "category_id",
