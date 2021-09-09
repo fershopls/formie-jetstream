@@ -1,6 +1,7 @@
 import { Inertia } from '@inertiajs/inertia';
 
 import InputRadio from "@/Formie/Inputs/Radio";
+import InputSelect from "@/Formie/Inputs/Select";
 import InputTextarea from "@/Formie/Inputs/Textarea";
 import FieldButton from "@/Formie/Inputs/Button";
 import FieldUpload from "@/Formie/Inputs/Upload";
@@ -61,7 +62,7 @@ export default (props) => [
   {
     name: "category_id",
     label: "Categoría",
-    type: InputRadio,
+    type: InputSelect,
     attrs: {
       class: "flex-col"
     },
