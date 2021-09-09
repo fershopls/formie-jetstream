@@ -60,16 +60,16 @@ class ProductController extends Controller
             $storedImages->toArray()
         );
 
-        return $product;
+        return redirect()->route('products.edit', $product->id);
     }
 
 
     public function imagesDestroy(Product $product, Image $image)
     {
-        dd($image->url, Storage::delete($image->url));
-
         if ($product->images($image)->detach()) {
-            Storage::delete($image->url);
+            Storage::delete($image->path);
         }
+
+        return redirect()->route('products.edit', $product->id);
     }
 }
