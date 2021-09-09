@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Foundation\Application;
@@ -42,4 +43,6 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::delete('/images/{image}', [ProductController::class, 'imagesDestroy'])
                 ->name('products.images.destroy');
         });
+
+        Route::resource('categories', CategoryController::class);
     });
