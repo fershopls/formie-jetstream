@@ -45,7 +45,7 @@ export default {
         product: product_id,
         image: image_id,
       });
-      this.$inertia.delete(url);
+      this.$inertia.delete(url, { preserveScroll: true });
     },
   },
 
