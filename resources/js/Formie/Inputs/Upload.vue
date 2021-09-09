@@ -4,6 +4,7 @@
       type="file"
       :multiple="field.multiple"
       @input="onInput"
+      ref="upload"
     >
   </div>
 </template>
@@ -13,6 +14,14 @@
 export default {
   props: ["value", "field"],
   emits: ["update"],
+
+  watch: {
+    value(value) {
+      if (value == null) {
+        this.$refs.upload.value = null;
+      }
+    },
+  },
 
   methods: {
     onInput(event) {
