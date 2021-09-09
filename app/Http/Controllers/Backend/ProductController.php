@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        return Product::query()
+            ->with('images')
+            ->get();
+    }
+
+
     public function create()
     {
         $categories = ['Videojuegos', 'Azar', 'Inmuebles', 'Vehiculos', 'Musica'];
@@ -94,9 +103,20 @@ class ProductController extends Controller
     }
 
 
+    public function destroy(Product $product)
+    {
+        $product->images->each(function ($image) {
+            Storage::delete($image->path);
+            $image->delete();
+        });
+
+        return $product->delete();
+    }
+
+
     public function imagesDestroy(Product $product, Image $image)
     {
-        if ($product->images($image)->detach()) {
+        if ($product->images()->detach($image->id)) {
             Storage::delete($image->path);
             $image->delete();
         }
