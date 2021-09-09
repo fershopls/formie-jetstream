@@ -1,10 +1,9 @@
 <template>
   <div>
-    <div
-      v-if="field.label"
-      class="text-sm font-bold mb-2"
-    >
-      {{ field.label }}
+    <div v-if="field.label">
+      <input-label>
+        {{ field.label }}
+      </input-label>
     </div>
     <component
       :is="component"
@@ -15,21 +14,28 @@
       @update="(value) => $emit('update:modelValue', value)"
     />
     <div v-if="field.name && context.errors && context.errors[field.name]">
-      <div class="text-red-600 mt-2 inline-block px-2 text-center border border-red-400 rounded">
-        <i class="fas fa-times"></i>
+      <input-error>
         {{ context.errors[field.name] }}
-      </div>
+      </input-error>
     </div>
   </div>
 </template>
 
 
 <script>
+import InputLabel from "./Label";
+import InputError from "./Error";
+
 import InputDefault from "./Inputs/Default";
 
 export default {
   props: ["field", "modelValue", "context"],
   emits: ["update:modelValue"],
+
+  components: {
+    InputLabel,
+    InputError,
+  },
 
   methods: {
     safeField(field) {
