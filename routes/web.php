@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])
 
         Route::resource('users', UserController::class)
             ->only('create', 'store', 'edit', 'update', 'destroy');
+
+        Route::resource('products', ProductController::class)
+            ->only('create', 'store', 'edit', 'update', 'delete');
     });
